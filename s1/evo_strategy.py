@@ -115,4 +115,8 @@ class ES:
         plt.savefig(path)
         # plt.show()
         # plt.pause(1)
+
+    
+    def save_history(self, path='history.txt'):
+        np.savetxt(path, self.cost_history)
         
