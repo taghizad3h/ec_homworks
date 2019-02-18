@@ -2,6 +2,8 @@ import numpy as np
 from numpy.random import multivariate_normal, normal
 import logging
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
 
 class ES:
     
