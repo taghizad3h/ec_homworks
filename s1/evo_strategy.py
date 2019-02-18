@@ -107,7 +107,7 @@ class ES:
     
 
     def plot_history(self, path='plt.png'):
-        plt.figure(1)
+        plt.figure(1, dpi=300)
         x = list(range(len(self.cost_history)))
         plt.plot(x, self.cost_history)
         plt.xlabel('iterations')
