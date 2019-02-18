@@ -12,7 +12,7 @@ consider_cov = True
 
 es = ES(n_dims, cost_func)
 es.evolve(iterations=iterations, consider_cov=consider_cov)
-es.plot_history()
+es.plot_history(path='third_model_rosen.png')
 
 
 n_dims = 1000
@@ -22,4 +22,4 @@ consider_cov = True
 
 es = ES(n_dims, cost_func)
 es.evolve(iterations=iterations, consider_cov=consider_cov)
-es.plot_history()
+es.plot_history(path='third_model_ackely.png')

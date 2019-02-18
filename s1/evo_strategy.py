@@ -104,12 +104,13 @@ class ES:
         return cov_matrix
     
 
-    def plot_history(self):
+    def plot_history(self, path='plt.png'):
         plt.figure(1)
         x = list(range(len(self.cost_history)))
         plt.plot(x, self.cost_history)
         plt.xlabel('iterations')
         plt.ylabel('cost')
-        plt.show()
-        plt.pause(1)
+        plt.savefig(path)
+        # plt.show()
+        # plt.pause(1)
         
