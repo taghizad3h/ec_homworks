@@ -7,7 +7,6 @@ from operator import attrgetter
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
-import pygraphviz as pgv
 from deap import algorithms, base, creator, gp, tools
 from deap.tools.selection import selRandom
 from numpy import genfromtxt
