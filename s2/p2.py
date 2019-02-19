@@ -24,12 +24,12 @@ verbose = True
 mating_prob = 0.5
 mutating_prob = 0.1
 n_generations = 1000
-parsimonyPressure = False
+parsimonyPressure = True
 parsimonyW1 = 0.01
 parsimonyW2 = 0.99
 tournsize = 3
 min_height=1
-max_height=10
+max_height=5
 mut_min_height=0
 mut_max_height=4
 
@@ -52,23 +52,11 @@ gpsolver = GPRegressionSolver(X, y, constants=constants, var_names=var_names,
 last_pop, log = gpsolver.solve(n_generations=n_generations)
 best_fitness = log.chapters['fitness'].select('min')
 avg_size = log.chapters['size'].select('avg')
-np.savetxt('best_fits.txt', best_fitness)
-np.savetxt('avg_size', avg_size)
+np.savetxt('best_fits_parsimonyp2.txt', best_fitness)
+np.savetxt('avg_size_parsimonyp2.txt', avg_size)
 
 
 ######## saving best solution found #########
 best = max(last_pop, key=operator.attrgetter("fitness"))
 logging.info('best individual\'s fittness: '+ str(best.fitness))
 draw(best, 'out/best_ind.pdf')
-
-
-######### using evolution strategy ##########
-
-def my_cost(constants):
-    return gpsolver.simpleFitness(best, constants)[0]
-
-logging.info('current constatns '+str(constants))
-mes = ES(len(constants), my_cost)
-mes.set_ans(constants)
-mes.evolve(iterations = 1000)
-logging.info('best found constants '+str(mes.ans))
