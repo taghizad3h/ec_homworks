@@ -4,8 +4,6 @@ import operator
 import random
 from operator import attrgetter
 
-import matplotlib.pyplot as plt
-import networkx as nx
 import numpy as np
 from deap import algorithms, base, creator, gp, tools
 from deap.tools.selection import selRandom
