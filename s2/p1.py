@@ -19,7 +19,7 @@ population_size = 300
 verbose = True
 mating_prob = 0.5
 mutating_prob = 0.1
-n_generations = 10
+n_generations = 1000
 parsimonyPressure = False
 parsimonyW1 = 0.01
 parsimonyW2 = 0.99
@@ -36,7 +36,8 @@ if len(var_names)>0:
 
 
 ########### running algorithm ###########
-gpsolver = GPRegressionSolver(X, y, constants=constants, var_names=var_names)
+gpsolver = GPRegressionSolver(X, y, constants=constants, var_names=var_names, 
+    use_parsimony_pressure=parsimonyPressure, parsimony_pressure_w1=parsimonyW1, parsimony_pressure_w2=parsimonyW2)
 last_pop, log = gpsolver.solve(n_generations=n_generations)
 
 

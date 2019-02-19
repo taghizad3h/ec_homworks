@@ -3,6 +3,7 @@ from numpy.random import multivariate_normal, normal
 import logging
 import matplotlib.pyplot as plt
 import matplotlib
+import math
 matplotlib.use('Agg')
 
 class ES:
@@ -66,7 +67,7 @@ class ES:
             logging.debug('calculating cost of new answer')
             tans_cost = self.cost_func(tans)
             
-            if  tans_cost < self.cost:
+            if  tans_cost < self.cost or math.isnan(tans_cost):
                 logging.info('cost improved from {:.5f} to {:.5f}'.format(self.cost, tans_cost))
                 self.ans = tans
                 self.sigmas = tsigmas
